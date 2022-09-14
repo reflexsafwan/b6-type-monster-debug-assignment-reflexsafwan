@@ -101,13 +101,15 @@ const closeModal = () => {
 
 const start = () => {
   // If already started, do not start again
-  if (startTime) return;
-
+  if (startTime) return
   let count = 3;
   countdownOverlay.style.display = "flex";
+  // console.log(countdownOverlay)
 
   const startCountdown = setInterval(() => {
-    countdownOverlay.innerHTML = '<h1>${count}</h1>';
+    countdownOverlay.innerHTML = `<h1>${count}</h1>`;
+
+
 
     // finished timer
     if (count == 0) {
@@ -119,8 +121,10 @@ const start = () => {
       clearInterval(startCountdown);
       startTime = new Date().getTime();
     }
+
     count--;
   }, 1000);
+
 };
 
 // START Countdown
@@ -136,4 +140,5 @@ setInterval(() => {
 
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
-}, 1000);
+}, 1000)
+
